@@ -12,4 +12,9 @@ def index(request):
 	special_number=data[6]
 	return render(request,"index.html",locals())
 
-# Create your views here.
+def show(request, id):
+	try:
+		target=Post.objects.get(id=id)
+	except:
+		target= None
+	return render(request, "showpost.html", locals())
